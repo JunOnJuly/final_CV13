@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'IBMPKR';
+  src: url('./fonts/IBM_Plex_Sans_KR/IBMPlexSansKR-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'IBMKR_Bold';
+  src: url('./fonts/IBM_Plex_Sans_KR/IBMPlexSansKR-Bold.ttf');
+}
