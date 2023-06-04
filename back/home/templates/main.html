@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% comment %} content {% endcomment %}
+
+{% block content %}
+
+  <div id='top-event'>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+          <p class='event-text'>이벤트가 있다면</p>
+        </div>
+        <div class="carousel-item">
+          <p class='event-text'>여기에서</p>
+        </div>
+        <div class="carousel-item">
+          <p class='event-text'>확인할 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='nav-bar'>
+      <div class='nav-item-div'>
+        <div class="nav-text-div">
+          {% if user.is_authenticated %}
+            <p class='nav-text'>{{request.user.username}}</p>
+            <a href="{% url 'users:logout' %}"  class='nav-text'>logout</a>
+          {% else %}
+            <a href="{% url 'users:signup' %}" class='nav-text'>signin</a>
+            <a href="{% url 'users:login' %}" class='nav-text'>login</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class='nav-item-div'>
+        {% comment %} <div class='nav-image-div'>nav-image</div> {% endcomment %}
+        <div class="nav-text-div">
+          <p class='nav-text'>nav-text</p>
+        </div>
+      </div>
+
+      <div class='nav-item-div'>
+        {% comment %} <div class='nav-image-div'>nav-image</div> {% endcomment %}
+        <div class="nav-text-div">
+          <p class='nav-text'>nav-text</p>
+        </div>
+      </div>
+  </div>
+
+  <div id="carousel-div">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active"  data-bs-interval="3000">
+          <img class="carousel-custom-img" src="https://file.newswire.co.kr/data/datafile2/thumb_640/2021/06/990366635_20210628162512_8318036088.jpg">
+        </div>
+        <div class="carousel-item">
+          <img class="carousel-custom-img" src="https://www.koreafurniture.com/data/mainbrand/10">
+        </div>
+        <div class="carousel-item">
+          <img class="carousel-custom-img" src="https://unogagu.com/wp-content/uploads/2022/06/IMGL8149-2-scaled.jpg">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="bottom-bar">
+    <p id="bottom-bar-text">
+      @네이버 커넥트재단
+    </p>
+  </div>
+{% endblock content %}
+
+{% comment %} css {% endcomment %}
+
+{% block css %}
+
+#top-event{
+  width: 100vw;
+  height: 5vh;
+
+  background-color: #7986AC;
+  text-align: center;
+  line-height : 5vh;
+}
+
+.event-text{
+  margin: 0;
+  color: #FFD3AA;
+}
+
+#nav-bar{
+  width: 100vw;
+  height: 8vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  {% comment %} border: 1px white solid; {% endcomment %}
+}
+
+.nav-item-div{
+  height: 10vh;
+
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  {% comment %} border: 1px solid red; {% endcomment %}
+}
+
+.nav-image-div{
+  height: 10vh;
+  width: 10vh;
+  object-fit: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 100%;
+  color: #7986AC;
+  {% comment %} border: 1px solid blue; {% endcomment %}
+}
+
+.nav-text-div{
+  height: 10vh;
+  width: 10vh;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.nav-text{
+  margin: 0 0 0 3%;
+
+  color: #7986AC;
+}
+
+#carousel-div{
+  height: 70vh;
+  width: 80vw;
+}
+
+.carousel-custom-img{
+  height: 70vh;
+  width: 80vw;
+
+  border: 5px solid #AA6F39;
+}
+
+#bottom-bar{
+  height: 5vh;
+  width: 100vw;
+
+  background-color: #7683AA;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#bottom-bar-text{
+  margin: 0;
+  color: #FFD3AA;
+}
+{% endblock css %}
+
