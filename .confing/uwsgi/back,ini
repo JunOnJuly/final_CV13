@@ -1,0 +1,20 @@
+[uwsgi]
+chdir=/opt/ml/prj/final_cv13/back/
+module=back.wsgi:application
+home=/opt/ml/prj/final_cv13/venv/
+
+uid=root
+gid=root
+
+socket = /tmp/back.sock
+chmod-socket = 666
+chown-socket = root:root
+
+http=:30006
+
+enable-threads=true
+master=true
+vacuum=true
+pidfile=/tmp/back.pid
+logto=/var/log/uwsgi/back/@(exec://date +%%Y-%%m-%%d).log
+log-reopen=true
